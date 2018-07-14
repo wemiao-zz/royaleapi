@@ -104,10 +104,9 @@ const keys = {
 request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
-    let regex = RegExp(`${keys['miner']}|${keys['zappies']}`);
-    // let regex = /skeleton-barrel/;
+    let regex = RegExp(`${keys['pekka']}|${keys['battle-ram']}`);
 
-    let exclusionString = `${keys['giant']}|${keys['lumberjack']}|${keys['electro-wizard']}|${keys['bandit']}|${keys['goblin-gang']}`;
+    let exclusionString = `${keys['giant']}|${keys['lumberjack']}|${keys['electro-wizard']}|${keys['bandit']}|${keys['goblin-gang']}|${keys['tesla']}|${keys['ice-golem']}`;
 
     let exclusions = RegExp(exclusionString);
 
