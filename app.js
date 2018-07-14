@@ -6,7 +6,6 @@ const options = { method: 'GET',
     // url: 'https://api.royaleapi.com/clan/2CCCP',
     // url: 'https://api.royaleapi.com/player/820CGRLGU',
     // url: 'https://api.royaleapi.com/player/820CGRLGU/chests',
-    // url: 'https://api.royaleapi.com/popular/decks?max=5',
 
     url: 'https://api.royaleapi.com/popular/decks',
     headers: { auth: config.get('authKey') }
