@@ -104,7 +104,7 @@ const keys = {
 request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
-    let regex = RegExp(`${keys['miner']}|${keys['royal-ghost']}`);
+    let regex = RegExp(`${keys['miner']}|${keys['zappies']}`);
     // let regex = /skeleton-barrel/;
 
     let exclusionString = `${keys['giant']}|${keys['lumberjack']}|${keys['electro-wizard']}|${keys['bandit']}|${keys['goblin-gang']}`;
@@ -118,8 +118,10 @@ request(options, function (error, response, body) {
 
     let parsed = JSON.parse(body);
     let outStr;
+    let link; 
     for (let deck of parsed) {
         include = true;
+        link = 'https://link.clashroyale.com/deck/en?deck=';
 
         elixirCount = 0;
         count = 0;
@@ -137,11 +139,14 @@ request(options, function (error, response, body) {
 
             for (let card of deck.cards) {
                 elixirCount += card.elixir;
-                console.log(`'${card.key}': ${ card.id},`);
-                outStr += `${card.key} `
+                outStr += `${card.key} `;
+                link += `${card.id};`;
             }
+            // remove last semicolon
+            link = link.slice(0, -1);
             outStr += ` avg elixir cost: ${elixirCount / 8}`;
             console.log(outStr);
+            console.log(link);
         }
     } 
 });
