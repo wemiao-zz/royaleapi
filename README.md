@@ -1,4 +1,4 @@
-# simple Clash Royale API Wor#
+# simple Clash Royale API Work #
 
 Just trying to do some clash stuff to help the clan create decks in clan wars
 
