@@ -9,13 +9,26 @@ const options = { method: 'GET',
 
 // getBestWarDecks(options);
 
-getPlayerCoverage(options, '820CGRLGU');
+getPlayerCoverage(options, '9RGYYYJL');
+
+// getClanWar(options, '9UG2R2LQ');
 
 // getClanStats()
 
 // function getClanStats(options, clanCode) {
 
 // }
+
+function getClanWar(options, clanCode) {
+    options.url = `https://api.royaleapi.com/clan/${clanCode}/battles?type=war`;
+
+    request(options, function (error, response, body) {
+        let parsed = JSON.parse(body);
+        for (let entry of parsed) {
+            console.log(entry.team[0].name);
+        }
+    });
+}
 
 function getPlayerCoverage(options, playerCode) {
     options.url = `https://api.royaleapi.com/player/${playerCode}`;
@@ -94,9 +107,9 @@ function getBestWarDecks(options) {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
 
-        let regex = RegExp(`${keys['pekka']}|${keys['battle-ram']}`);
+        let regex = RegExp(`${keys['poison']}|${keys['miner']}`);
 
-        let exclusionString = `${keys['giant']}|${keys['lumberjack']}|${keys['electro-wizard']}|${keys['bandit']}|${keys['goblin-gang']}|${keys['tesla']}|${keys['ice-golem']}`;
+        let exclusionString = `${keys['tesla']}|${keys['skeletons']}|${keys['pekka']}|${keys['furnace']}`;
 
         let exclusions = RegExp(exclusionString);
 
